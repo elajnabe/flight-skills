@@ -2,6 +2,8 @@
 
 Flight Skills is a XP / Skill system resource that enables you to add a progression system to your server.
 
+![Flight Skills](https://imgur.com/rzx6BSb.png)
+
 ## Features
 
 - Server Sided Exports for adding, setting, checking and removing
