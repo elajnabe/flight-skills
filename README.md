@@ -120,6 +120,11 @@ exports['flight-skills']:removeXP(source, skill, amount)
 exports['flight-skills']:removeXP(1, "fishing", 5)
 ```
 
+## Backwards Compatible With
+
+- cw-rep
+- pickle_xp
+
 ## Contributing
 
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue on the [GitHub repository](https://github.com/elajnabe/flight-skills/issues) or submit a pull request.
