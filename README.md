@@ -28,20 +28,20 @@ Flight Skills can be customized by modifying the `config.lua` file located in th
 
 ### Client Side Exports
 
-exports['flight-skills']:getSkill(skill)
-exports['flight-skills']:getXP(skill)
-exports['flight-skills']:getLevel(skill)
-exports['flight-skills']:hasXP(skill, amount)
-exports['flight-skills']:hasLevel(skill, amount)
+- `exports['flight-skills']:getSkill(skill)`
+- `exports['flight-skills']:getXP(skill)`
+- `exports['flight-skills']:getLevel(skill)`
+- `exports['flight-skills']:hasXP(skill, amount)`
+- `exports['flight-skills']:hasLevel(skill, amount)`
 
 ### Server Side Exports
 
-exports['flight-skills']:getSkill(source, skill)
-exports['flight-skills']:getXP(source, skill)
-exports['flight-skills']:getLevel(source, skill)
-exports['flight-skills']:setXP(source, skill, amount)
-exports['flight-skills']:addXP(source, skill, amount)
-exports['flight-skills']:removeXP(source, skill, amount)
+- `exports['flight-skills']:getSkill(source, skill)`
+- `exports['flight-skills']:getXP(source, skill)`
+- `exports['flight-skills']:getLevel(source, skill)`
+- `exports['flight-skills']:setXP(source, skill, amount)`
+- `exports['flight-skills']:addXP(source, skill, amount)`
+- `exports['flight-skills']:removeXP(source, skill, amount)`
 
 ## Contributing
 
