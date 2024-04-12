@@ -7,13 +7,22 @@ RegisterNetEvent('flight-skills:openMenu', function(data)
     lib.showContext(data.id)
 end)
 
-local function getXP(skill)
+local function getSkill(skill)
     return lib.callback.await('flight-skills:callback:getXP', false, skill)
+end
+exports('getSkill', getSkill)
+
+local function getXP(skill)
+    skill = getSkill(skill)
+    if skill then
+        return skill.xp
+    end
+    return 0
 end
 exports('getXP', getXP)
 
 local function getLevel(skill)
-    skill = getXP(skill)
+    skill = getSkill(skill)
     if skill then
         return skill.level
     end
@@ -22,7 +31,7 @@ end
 exports('getLevel', getLevel)
 
 local function hasXP(skill, amount)
-    skill = getXP(skill)
+    skill = getSkill(skill)
     if skill then
         return skill.xp >= amount
     end
@@ -31,7 +40,7 @@ end
 exports('hasXP', hasXP)
 
 local function hasLevel(skill, level)
-    skill = getXP(skill)
+    skill = getSkill(skill)
     if skill then
         return skill.level >= level
     end

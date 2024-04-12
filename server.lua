@@ -126,7 +126,7 @@ local function saveSkillsAll()
     end
 end
 
-local function getXP(source, skill)
+local function getSkill(source, skill)
     local identifier = getIdentifier(source)
     if not identifier then
         print("Error: Identifier not found")
@@ -153,37 +153,19 @@ local function getXP(source, skill)
     end
     return { level = 0, xp = 0 }
 end
+exports("getSkill", getSkill)
+
+local function getXP(source, skill)
+    return getSkill(source, skill).xp
+end
 exports("getXP", getXP)
 
 local function getLevel(source, skill)
-    local identifier = getIdentifier(source)
-    if not identifier then
-        print("Error: Identifier not found")
-        return
-    end
-    if skills[identifier] then
-        local level = 0
-        if Config.Skills[skill].levels then
-            for i = #Config.Skills[skill].levels, 1, -1 do
-                if skills[identifier][skill] >= Config.Skills[skill].levels[i].value then
-                    level = i
-                    break
-                end
-            end
-        else
-            for i = #Config.DefaultValues.levels, 1, -1 do
-                if skills[identifier][skill] >= Config.DefaultValues.levels[i] then
-                    level = i
-                    break
-                end
-            end
-        end
-        return level
-    end
-    return 0
+    return getSkill(source, skill).level
 end
+exports("getLevel", getLevel)
 
-local function getXPs(source)
+local function getSkills(source)
     local identifier = getIdentifier(source)
     if not identifier then
         print("Error: Identifier not found")
@@ -460,7 +442,7 @@ RegisterCommand(Config.Command, function(source, _, _)
         return
     end
     local p = promise.new()
-    p:resolve(getXPs(source))
+    p:resolve(getSkills(source))
     p = Citizen.Await(p)
     local options = prepareOptions(p)
     TriggerClientEvent('flight-skills:openMenu', source, {
@@ -621,4 +603,4 @@ local function updateSkill(source, skill, value)
     end
 end
 exportHandler("cw-rep", "updateSkill", updateSkill)
-exportHandler("cw-rep", "fetchSkills", getXPs)
+exportHandler("cw-rep", "fetchSkills", getSkills)
