@@ -132,7 +132,7 @@ local function getSkill(source, skill)
         print("Error: Identifier not found")
         return
     end
-    if skills[identifier] then
+    if Config.Skills[skill] and skills[identifier] then
         local level = 0
         if Config.Skills[skill].levels then
             for i = #Config.Skills[skill].levels, 1, -1 do
