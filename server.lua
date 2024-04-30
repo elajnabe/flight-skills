@@ -196,6 +196,12 @@ exports("setXP", setXP)
 
 local function addXP(source, skill, value)
     local identifier = getIdentifier(source)
+
+    if not Config.Skills[skill] then
+        print("Error: Skill not found")
+        return
+    end
+
     if not identifier then
         print("Error: Identifier not found")
         return
@@ -318,6 +324,12 @@ exports("addXP", addXP)
 
 local function removeXP(source, skill, value)
     local identifier = getIdentifier(source)
+
+    if not Config.Skills[skill] then
+        print("Error: Skill not found")
+        return
+    end
+
     if not identifier then
         print("Error: Identifier not found")
         return

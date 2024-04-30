@@ -88,6 +88,17 @@ Config.Skills = {
         }
     },
 
+    ["deliveries"] = {
+        label = "Deliveries",
+        icon = "fas fa-box",
+        hide = false,
+        degrades = {
+            active = true,
+            amount = 1,
+            chance = 50,
+        }
+    },
+
     ["hacking"] = {
         label = "Hacking",
         icon = "fas fa-laptop-code",
